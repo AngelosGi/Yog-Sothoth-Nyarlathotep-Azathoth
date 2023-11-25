@@ -1,7 +1,7 @@
 
 const choices = ["rock", "paper", "scissors"];
-var playerScore = 0;
-var computerScore = 0;
+let playerScore = 0;
+let computerScore = 0;
 
 
 document.getElementById("rockButton").addEventListener("click", function() {
@@ -35,8 +35,6 @@ function getComputerChoice(){
 
 function checkWinner(playerChoice,computerChoice ){
     if (computerChoice == playerChoice) {
-        playerScore += 1;
-        computerScore += 1;
         return "Tie"        
     }
     else if ((playerChoice == "rock" && computerChoice == "scissors") ||
