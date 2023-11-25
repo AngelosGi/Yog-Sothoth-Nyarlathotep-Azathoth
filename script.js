@@ -3,7 +3,6 @@ const choices = ["rock", "paper", "scissors"];
 
 
 
-
 document.getElementById("rockButton").addEventListener("click", function() {
     const playerChoice = "rock";
     const computerChoice = getComputerChoice();
