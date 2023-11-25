@@ -1,6 +1,7 @@
 
 const choices = ["rock", "paper", "scissors"];
-
+var playerScore = 0;
+var computerScore = 0;
 
 
 document.getElementById("rockButton").addEventListener("click", function() {
@@ -33,17 +34,20 @@ function getComputerChoice(){
 }
 
 function checkWinner(playerChoice,computerChoice ){
-
     if (computerChoice == playerChoice) {
+        playerScore += 1;
+        computerScore += 1;
         return "Tie"        
     }
     else if ((playerChoice == "rock" && computerChoice == "scissors") ||
             (playerChoice == "paper" && computerChoice == "rock") ||
             (playerChoice == "scissors" && computerChoice == "paper")){
+                playerScore += 1;
                 return "player"
     }
     else  {
-                return "Computer"
+        computerScore += 1;        
+        return "Computer"
     }
 };
 
@@ -64,7 +68,8 @@ function playRound(playerChoice,computerChoice){
 
 function displayResult(result) {
     const resultDisplay = document.getElementById("resultDisplay");
-    resultDisplay.textContent = result;
+    resultDisplay.textContent = `Player: ${playerScore} Computer: ${computerScore}\n
+    ${result}`;
 };
 
 
