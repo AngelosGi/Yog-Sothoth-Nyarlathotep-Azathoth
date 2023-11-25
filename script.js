@@ -3,27 +3,23 @@ const choices = ["rock", "paper", "scissors"];
 let playerScore = 0;
 let computerScore = 0;
 
+document.getElementById("rockButton").addEventListener("click", function(){
+    playGame("rock")
+});
 
-document.getElementById("rockButton").addEventListener("click", function() {
-    const playerChoice = "rock";
+document.getElementById("paperButton").addEventListener("click", function(){
+    playGame("paper")
+});
+
+document.getElementById("scissorsButton").addEventListener("click", function(){
+    playGame("scissors")
+});
+
+function playGame(playerChoice) {
     const computerChoice = getComputerChoice();
-    const result = playRound(playerChoice, computerChoice);
+    const result = playRound( playerChoice, computerChoice);
     displayResult(result);
-});
-
-document.getElementById("paperButton").addEventListener("click", function() {
-    const playerChoice = "paper";
-    const computerChoice = getComputerChoice();
-    const result = playRound(playerChoice, computerChoice);
-    displayResult(result); 
-});
-
-document.getElementById("scissorsButton").addEventListener("click", function() {
-    const playerChoice = "scissors";
-    const computerChoice = getComputerChoice();
-    const result = playRound(playerChoice, computerChoice);
-    displayResult(result);
-});
+}
 
 
 function getComputerChoice(){
@@ -32,6 +28,19 @@ function getComputerChoice(){
     console.log(computerChoice)
     return computerChoice;
 }
+
+function playRound(playerChoice,computerChoice){
+    const result = checkWinner(playerChoice, computerChoice);
+    if(result =="Tie"){
+        return "It's a Tie!"
+    }
+    else if(result == "player"){
+        return `You Win! ${playerChoice} beats ${computerChoice}`
+    }
+    else{
+        return `You lost! ${playerChoice} loses to ${computerChoice}`
+    }
+};
 
 function checkWinner(playerChoice,computerChoice ){
     if (computerChoice == playerChoice) {
@@ -49,27 +58,18 @@ function checkWinner(playerChoice,computerChoice ){
     }
 };
 
-
-function playRound(playerChoice,computerChoice){
-    const result = checkWinner(playerChoice, computerChoice);
-    if(result =="Tie"){
-        return "It's a Tie!"
-    }
-    else if(result == "player"){
-        return `You Win! ${playerChoice} beats ${computerChoice}`
-    }
-    else{
-        return `You lost! ${playerChoice} loses to ${computerChoice}`
-    }
-};
-
-
 function displayResult(result) {
     const resultDisplay = document.getElementById("resultDisplay");
     resultDisplay.textContent = `Player: ${playerScore} Computer: ${computerScore}\n
     ${result}`;
 };
 
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+//TEST CODE
 
 // const playerChoice = prompt();
 // console.log(playerChoice);
@@ -81,3 +81,25 @@ function displayResult(result) {
 //     console.log(i)
 // }
 
+//OLD CODE
+
+// document.getElementById("rockButton").addEventListener("click", function() {
+//     const playerChoice = "rock";
+//     const computerChoice = getComputerChoice();
+//     const result = playRound(playerChoice, computerChoice);
+//     displayResult(result);
+// });
+
+// document.getElementById("paperButton").addEventListener("click", function() {
+//     const playerChoice = "paper";
+//     const computerChoice = getComputerChoice();
+//     const result = playRound(playerChoice, computerChoice);
+//     displayResult(result); 
+// });
+
+// document.getElementById("scissorsButton").addEventListener("click", function() {
+//     const playerChoice = "scissors";
+//     const computerChoice = getComputerChoice();
+//     const result = playRound(playerChoice, computerChoice);
+//     displayResult(result);
+// });
