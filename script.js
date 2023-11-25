@@ -26,6 +26,12 @@ function playGame(playerChoice) {
     // Play a round and display the result
     const result = playRound(playerChoice, computerChoice);
     displayResult(result);
+
+    //Winner announcement and reset scores functions
+    if(playerScore === 5 || computerScore === 5) {
+        announceWinner();
+        resetScores();
+    }
 }
 
 // Function to get a random choice for the computer
@@ -81,8 +87,27 @@ function checkWinner(playerChoice, computerChoice){
 // Function to display the result and scores
 function displayResult(result) {
     const resultDisplay = document.getElementById("resultDisplay");
-    resultDisplay.textContent = `Player: ${playerScore} Computer: ${computerScore}\n${result}`;
+    resultDisplay.textContent = `Player: ${playerScore} Computer: ${computerScore}   ${result}`;
 }
+
+
+function announceWinner() {
+    const resultDisplay = document.getElementById("resultDisplay");
+    if (playerScore === 5) {
+        resultDisplay.textContent += "\nCongratulations! You won the game!";
+    } else {
+        resultDisplay.textContent += "\nSorry, you lost the game to the Computer.";
+    }
+}
+
+function resetScores() {
+    playerScore = 0;
+    computerScore = 0;
+}
+
+
+
+
 
 /////////////////////////////////////////////////////////////////////////////////////
 // TEST CODE (commented out for clarity)
@@ -90,11 +115,13 @@ function displayResult(result) {
 // Use this section for testing specific functionalities or scenarios
 
 // Example 1: Prompt user for input and display the result for one round
+
 // const playerChoice = prompt();
 // console.log(playerChoice);
 // playGame(playerChoice);
 
 // Example 2: Run the game for 5 rounds (old code)
+
 // for(i=1; i<6; i++) {
 //     const playerChoice = getPlayerChoice();
 //     const computerChoice = getComputerChoice();
@@ -104,6 +131,7 @@ function displayResult(result) {
 
 // Old code for individual button clicks (commented out)
 // Use the new consolidated playGame function for improved readability and maintainability
+
 // document.getElementById("rockButton").addEventListener("click", function() {
 //     const playerChoice = "rock";
 //     const computerChoice = getComputerChoice();
