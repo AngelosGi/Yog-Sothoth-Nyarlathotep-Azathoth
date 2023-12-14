@@ -1,6 +1,6 @@
 # Yog-Sothoth-Nyarlathotep-Azathoth
 
-Rock-paper-scissors but different.
+Rock-paper-scissors ~~but different.~~ (not yet)
 
 **Yog-Sothoth** (defeats Nyarlathotep): Yog-Sothoth, the all-knowing and all-seeing cosmic entity, exists beyond time and space, encompassing infinite knowledge and possibilities. It supersedes the manipulative and cunning nature of Nyarlathotep due to its omnipotent nature.
 
